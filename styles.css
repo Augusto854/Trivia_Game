@@ -1,0 +1,19 @@
+body {
+    text-align: center;
+    background: #0cdea3;
+    color: maroon;
+    
+}
+
+.game_header {
+    background: white;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    margin: 0 250px;
+}
+
+.player-card {
+    background: rgb(137, 10, 240);
+    border-radius: 1rem;
+    padding: 1rem;
+}

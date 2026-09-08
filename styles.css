@@ -12,8 +12,16 @@ body {
     margin: 0 250px;
 }
 
+.dice-panel,
 .player-card {
     background: rgb(137, 10, 240);
     border-radius: 1rem;
-    padding: 1rem;
+    padding: 0.5rem;
+    color: rgb(0, 255, 0);
 }
+
+.AI-image,
+.player-image {
+    width: 8rem;
+}
+

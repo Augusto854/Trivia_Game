@@ -5,6 +5,19 @@ body {
     
 }
 
+.status-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.board {
+    background: rgb(188, 255, 238);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
 .game_header {
     background: white;
     border-radius: 1rem;

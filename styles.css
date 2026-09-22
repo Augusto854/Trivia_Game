@@ -13,9 +13,13 @@ body {
 }
 
 .board {
-    background: rgb(188, 255, 238);
+    background: rgb(46, 160, 132);
     padding: 1rem;
     border-radius: 1rem;
+}
+
+.space {
+    
 }
 
 .game_header {

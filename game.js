@@ -3,7 +3,7 @@ const CATEGORIES = [
     { id: "yleistieto", name: "General" },
     { id: "historia", name: "History" },
     { id: "taide ja kulttuuri", name: "Arts" },
-    { id: "tide", name: "science" },
+    { id: "tiede", name: "science" },
     { id: "urheilu", name: "Sports" }
 ];
 
@@ -42,6 +42,11 @@ function CreateBoard() {
         const newSpace = document.createElement("div");
 
         newSpace.className = "space";
+
+        newSpace.style.gridColumn = coordinate.column;
+        newSpace.style.gridRow = coordinate.row;
+
+        newSpace.dataset.category = category.id;
 
         newSpace.textContent = category.name;
 

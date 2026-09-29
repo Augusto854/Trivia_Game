@@ -16,11 +16,26 @@ body {
     background: rgb(46, 160, 132);
     padding: 1rem;
     border-radius: 1rem;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(4, 1fr);
 }
 
 .space {
-    
+    color: rgb(0, 0, 0);
+    padding: 0.3rem;
+    border-radius: 0.6rem;
+    font-weight: bold;
+    display: grid;
+    place-items: center;
 }
+
+[data-category = "maantieto"] {background: green;}
+[data-category = "yleistieto"] {background: rgb(242, 226, 0);}
+[data-category = "historia"] {background: rgb(59, 9, 224);}
+[data-category = "taide ja kulttuuri"] {background: rgb(199, 10, 199);}
+[data-category = "tiede"] {background: rgb(238, 0, 48);}
+[data-category = "urheilu"] {background: orange;}
 
 .game_header {
     background: white;

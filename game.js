@@ -7,9 +7,26 @@ const CATEGORIES = [
     { id: "urheilu", name: "Sports" }
 ];
 
+const gameState = {
+    player: {
+        name: "Player",
+        position: 0,
+        collectedCategories: new Set()
+    },
+    computer: {
+        name: "Computer",
+        position: 0,
+        collectedCategories: new Set()
+    },
+    currentTurn: "player"
+};
+
 const BOARD_SIZE = 18;
 const boardElement = document.querySelector("#board");
+const rollButtonElement = document.querySelector("#roll-button");
+const dieBoxElement = document.querySelector("#die-box");
 
+rollButtonElement.addEventListener("click", RollDie);
 CreateBoard();
 
 function CreateBoardCoordinates() {
@@ -54,3 +71,8 @@ function CreateBoard() {
     }
 }
 
+function RollDie() {
+    var diceResult = Math.floor(Math.random() * 6) + 1; 
+
+    dieBoxElement.textContent = diceResult;
+}

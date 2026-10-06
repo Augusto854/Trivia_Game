@@ -52,6 +52,34 @@ body {
     color: rgb(0, 255, 0);
 }
 
+.dice-panel{
+    background: rgb(137, 10, 240);
+    border-radius: 1rem;
+    padding: 0.5rem;
+    color: rgb(0, 255, 0);
+    display: grid;
+    place-items: center;
+}
+
+.die-button{
+    display: grid;
+    margin-bottom: 1rem;
+}
+
+.die-box{
+    background: rgb(255, 255, 255);
+    width: 5rem;
+    height: 5rem;
+    border-radius: 1rem;
+    border: 0.3rem solid black;
+    display: grid;
+    place-items: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: black;
+}
+
 .AI-image,
 .player-image {
     width: 8rem;

@@ -13,7 +13,7 @@ body {
 }
 
 .board {
-    background: rgb(46, 160, 132);
+    background: rgb(255, 255, 255);
     padding: 1rem;
     border-radius: 1rem;
     display: grid;
@@ -28,6 +28,7 @@ body {
     font-weight: bold;
     display: grid;
     place-items: center;
+    position: relative;
 }
 
 [data-category = "maantieto"] {background: green;}
@@ -44,7 +45,6 @@ body {
     margin: 0 250px;
 }
 
-.dice-panel,
 .player-card {
     background: rgb(137, 10, 240);
     border-radius: 1rem;
@@ -85,3 +85,13 @@ body {
     width: 8rem;
 }
 
+.token {
+    background: rgb(2, 193, 170);
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 0.15rem solid white;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    position: absolute;
+}

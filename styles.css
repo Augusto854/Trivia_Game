@@ -36,7 +36,7 @@ body {
 [data-category = "historia"] {background: rgb(59, 9, 224);}
 [data-category = "taide ja kulttuuri"] {background: rgb(199, 10, 199);}
 [data-category = "tiede"] {background: rgb(238, 0, 48);}
-[data-category = "urheilu"] {background: orange;}
+[data-category = "teknologia"] {background: rgb(12, 186, 199);}
 
 .game_header {
     background: white;
@@ -86,7 +86,7 @@ body {
 }
 
 .token {
-    background: rgb(2, 193, 170);
+    background: rgb(250, 156, 69);
     width: 1.5rem;
     height: 1.5rem;
     border: 0.15rem solid white;

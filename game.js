@@ -4,7 +4,7 @@ const CATEGORIES = [
     { id: "historia", name: "History" },
     { id: "taide ja kulttuuri", name: "Arts" },
     { id: "tiede", name: "science" },
-    { id: "urheilu", name: "Sports" }
+    { id: "teknologia", name: "Technology" }
 ];
 
 const gameState = {
@@ -21,10 +21,13 @@ const gameState = {
     currentTurn: "player"
 };
 
+var API_URL = "https://oma-trivia-api-0f8ffa1eed2e.herokuapp.com/api/questions";
+
 const BOARD_SIZE = 18;
 const boardElement = document.querySelector("#board");
 const rollButtonElement = document.querySelector("#roll-button");
 const dieBoxElement = document.querySelector("#die-box");
+var playerQuestionText = document.querySelector("#question-text");
 
 rollButtonElement.addEventListener("click", RollDie);
 CreateBoard();
@@ -80,6 +83,10 @@ function RollDie() {
     gameState.player.position = (gameState.player.position + diceResult) % BOARD_SIZE;
 
     UpdateTokens();
+
+    var currentCategory = CATEGORIES[gameState.player.position % CATEGORIES.length];
+
+    getQuestion(currentCategory.id);
 }
 
 function UpdateTokens() {
@@ -92,4 +99,24 @@ function UpdateTokens() {
     token.textContent = "P";
     token.className = "token";
     currentSpace.append(token);
+}
+
+async function getQuestion(targetCategory) {
+    var response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            "category": targetCategory,
+            "difficulty": "keskitaso",
+            "ageGroup": "13-15",
+            "count": 1,
+            "language": "englanti"
+        })
+    });
+
+    var data = await response.json();
+    console.log(data)
+    console.log(data[0])
 }

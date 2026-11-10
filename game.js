@@ -75,7 +75,7 @@ function CreateBoard() {
     }
 }
 
-function RollDie() {
+async function RollDie() {
     var diceResult = Math.floor(Math.random() * 6) + 1; 
 
     dieBoxElement.textContent = diceResult;
@@ -86,7 +86,9 @@ function RollDie() {
 
     var currentCategory = CATEGORIES[gameState.player.position % CATEGORIES.length];
 
-    getQuestion(currentCategory.id);
+    //var questionData = await getQuestion(currentCategory.id);
+
+    //ShowQuestion(questionData);
 }
 
 function UpdateTokens() {
@@ -116,7 +118,17 @@ async function getQuestion(targetCategory) {
         })
     });
 
+    if (!response.ok) {
+        throw new Error("something went wrong :(");
+    }
+
     var data = await response.json();
     console.log(data)
-    console.log(data[0])
+    console.log(data[0].question)
+
+    return data[0]
+}
+
+function ShowQuestion(questionData) {
+    playerQuestionText.innerHTML = questionData.question;
 }

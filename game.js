@@ -28,6 +28,10 @@ const boardElement = document.querySelector("#board");
 const rollButtonElement = document.querySelector("#roll-button");
 const dieBoxElement = document.querySelector("#die-box");
 var playerQuestionText = document.querySelector("#question-text");
+var questionCategoryElement = document.querySelector("#question-category");
+var questionAnswerElement = document.querySelector("#question-answer");
+var feedbackElement = document.querySelector("#feedback");
+var questionPanelElement = document.querySelector("#question-panel");
 
 rollButtonElement.addEventListener("click", RollDie);
 CreateBoard();
@@ -86,9 +90,13 @@ async function RollDie() {
 
     var currentCategory = CATEGORIES[gameState.player.position % CATEGORIES.length];
 
-    //var questionData = await getQuestion(currentCategory.id);
-
-    //ShowQuestion(questionData);
+    try {
+        var questionData = await getQuestion(currentCateogry.id);
+        ShowQuestion(questionData);
+    }
+    catch (error) {
+        playerQuestionText.innerHTML = error;
+    }
 }
 
 function UpdateTokens() {
@@ -124,11 +132,30 @@ async function getQuestion(targetCategory) {
 
     var data = await response.json();
     console.log(data)
-    console.log(data[0].question)
+    console.log(data.questions[0].question)
 
-    return data[0]
+    return data.questions[0]
 }
 
 function ShowQuestion(questionData) {
+    questionPanelElement.removeAttribute("hidden");
     playerQuestionText.innerHTML = questionData.question;
+    questionCategoryElement.innerHTML = questionData.category;
+
+    questionAnswerElement.innerHTML = "";
+    feedbackElement.innerHTML = "";
+
+    questionData.answers.forEach((answer, index) => {
+        var answerButton = document.createElement("button");
+        answerButton.classList = "answerButton";
+        answerButton.innerHTML = answer;
+
+        answerButton.addEventListener("click", CheckAnswer(index, questionData));
+
+        questionAnswerElement.append(answerButton);
+    });
+}
+
+function CheckAnswer (selectedIndex, questionData) {
+
 }
